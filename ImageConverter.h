@@ -26,11 +26,12 @@ class ImageConverter
 		RLA			= 0x13,
 		RPF			= 0x14,
 	};
-	char errorCode = 00000000;
+	static char m_errorCode;
 	char fileInfo;	//	bit 0 - isValid, bit 1..2 - reserved, bit 3..7 - fileType
 	std::stringstream fileData;
 	
 	bool checkFileValidity();
+
 public:
 	enum ErrorValue
 	{
@@ -42,7 +43,7 @@ public:
 		FUNCTION_IS_NOT_REALIZED
 	};
 
-	bool getLastError();
+	char getLastError();
 	std::string getErrorMessage(char);
 
 	bool readFile(std::string);
